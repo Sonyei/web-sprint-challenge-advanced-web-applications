@@ -18,15 +18,14 @@ const Login = (props) => {
 			[e.target.name]: e.target.value,
 		});
 	};
-
-	useEffect(() => {
+	const logIn = () => {
 		axiosWithAuth()
 			.post("login", formValues)
 			.then((res) => {
 				localStorage.setItem("token", res.data.payload);
 				props.history.push("/bubble-page");
 			});
-	}, [formValues]);
+	};
 
 	//handleSubmit was replaced with useEffect for codeGrade testing specifically.
 
@@ -52,7 +51,7 @@ const Login = (props) => {
 				formValues.password !== "i<3Lambd4" ? (
 					<p>Username or Password not valid.</p>
 				) : (
-					axiosWithAuth()
+					logIn()
 				)}
 				<label>username:</label>
 				<input
