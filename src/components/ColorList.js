@@ -30,15 +30,14 @@ const ColorList = ({ colors, updateColors }) => {
 			.catch((err) => console.log("ERROR: ", err));
 	};
 
-	const deleteColor = (color) => {
-		const colorId = 0;
+	const deleteColor = () => {
 		axiosWithAuth()
 			.delete(`/colors/${id}`)
 			.then((res) => {
-				const newColors = colors.filter(
+				const filteredColors = colors.filter(
 					(color) => Number(color.id) !== Number(res.data)
 				);
-				updateColors(newColors);
+				updateColors(filteredColors);
 			})
 			.catch((err) => console.log("ERROR:", err));
 	};
