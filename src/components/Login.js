@@ -30,16 +30,16 @@ const Login = (props) => {
 
 	//handleSubmit was replaced with useEffect for codeGrade testing specifically.
 
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	axiosWithAuth()
-	// 		.post("login", formValues)
-	// 		.then((res) => {
-	// 			localStorage.setItem("token", res.data.payload);
-	//
-	// 		})
-	// 		.catch((err) => console.log("ERROR: ", err));
-	// };
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		// 	axiosWithAuth()
+		// 		.post("login", formValues)
+		// 		.then((res) => {
+		// 			localStorage.setItem("token", res.data.payload);
+		//
+		// 		})
+		// 		.catch((err) => console.log("ERROR: ", err));
+	};
 
 	return (
 		<>
@@ -47,7 +47,7 @@ const Login = (props) => {
 				Welcome to the Bubble App!
 				<p>Build a login page here</p>
 			</h1>
-			<form>
+			<form onSubmit={handleSubmit}>
 				{formValues.username !== "Lambda School" ||
 				formValues.password !== "i<3Lambd4" ? (
 					<p>Username or Password not valid.</p>
@@ -69,6 +69,7 @@ const Login = (props) => {
 					value={formValues.password}
 					onChange={handleUpdate}
 				/>
+				<button>Submit</button>
 			</form>
 		</>
 	);
