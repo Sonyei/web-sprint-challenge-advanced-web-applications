@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 
 const initialState = {
@@ -27,7 +27,7 @@ const Login = (props) => {
 			});
 	};
 
-	//handleSubmit was replaced with useEffect for codeGrade testing specifically.
+	//handleSubmit was replaced with logIn for codeGrade testing specifically.
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
